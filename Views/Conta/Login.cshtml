@@ -1,0 +1,49 @@
+﻿@model ContaViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <h2>Faça Login ou Cadastre-se</h2>
+
+    <br />
+
+    <form action="/conta/fazlogin" method="post">
+
+        <div class="form-group">
+            <label for="Usuario" class="text-center">Login</label>
+            <input type="text" Name="Usuario" value="@Model.Usuario" placeholder="Digite seu login" class="form-control" />
+            <span asp-validation-for="Usuario" class="text-danger"></span>
+            <span class="text-danger"> @ViewBag.Erro</span>
+            <br />
+        </div>
+
+        <div class="form-group">
+            <label for="Senha" class="text-center">Senha</label>
+            <input type="password" Name="Senha" value="@Model.Senha" placeholder="Digite sua Senha" class="form-control" />
+            <span asp-validation-for="Senha" class="text-danger"></span>
+            <br />
+        </div>
+
+
+        <center>
+            <input type="submit" value="Fazer Login" class="btn-block" />
+        </center>
+        
+        <br />
+    </form>
+
+    <form action="/conta/criarnovaconta">
+        <center>
+            <input type="submit" value="Criar novo cadastro" class="btn-block" />
+        </center>
+        <br />
+        <br />
+
+    </form>
+
+</div>

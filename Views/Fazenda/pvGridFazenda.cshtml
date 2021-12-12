@@ -1,0 +1,23 @@
+﻿@model List<FazendaViewModel>
+
+<table class="table table-striped">
+    <tr>
+        <th>Código</th>
+        <th>Código do Proprietário</th>
+        <th>Nome</th>
+        <th>Endereco</th>
+        <th>Tamanho (m²)</th>
+        <th>Quantidade de Sensores</th>
+    </tr>
+    @foreach (var fazenda in Model)
+    {
+        <tr>
+            <td>@fazenda.Id</td>
+            <td>@fazenda.ProprietarioID</td>
+            <td>@fazenda.FazendaNome</td>
+            <td>@fazenda.Endereco</td>
+            <td>@fazenda.Tamanho</td>
+            <td>@fazenda.NumeroSensores</td>
+        </tr>
+    }
+</table>

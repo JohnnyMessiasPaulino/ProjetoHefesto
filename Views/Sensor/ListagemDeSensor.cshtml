@@ -1,0 +1,62 @@
+﻿@model List<SensorViewModel>
+
+    <div class="container">
+
+        <div style="text-align:center">
+            <h1>Listagem de Sensores</h1>
+        </div>
+            <br />
+            <br />
+            <a href="/fazenda/index" class="btn btn-outline-dark">Voltar</a>
+            <br />
+            <br />
+            <table class="table">
+                <tr>
+                    <th>
+                        <a href="/Fazenda/Index" class="btn btn-success">Cadastrar Sensor</a>
+                    </th>
+                    <th>
+                        <a href="/Proprietario/Index" class="btn btn-success">Ver Lista de Proprietarios Cadastrados</a>
+                    </th>
+                    <th>
+                        <a href="/Fazenda/Index" class="btn btn-success">Ver Lista de Fazendas Cadastradas</a>
+                    </th>
+                </tr>
+            </table>
+            <br />
+            <br />
+
+            <table class="table table-responsive table-striped">
+                <tr>
+                    <th>Ações</th>
+                    <th>Sensor ID</th>
+                    <th>Fazenda ID</th>
+                    <th>Temperatura</th>
+                    <th>Umidade</th>
+                    <th>Localização</th>
+                    <th>Condição</th>
+                    <th>DataAtualização</th>
+                    <th>Atualizar dados</th>
+                </tr>
+
+                @foreach (SensorViewModel sensor in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Sensor/Edit?id=@sensor.Id&id2=@sensor.FazendaID"><img src="~/img/edit.png" /></a>
+                            <a href="/Sensor/Delete?id=@sensor.Id"><img src="~/img/delete.png" /></a>
+                        </td>
+                        <td>@sensor.Id</td>
+                        <td>@sensor.FazendaID</td>
+                        <td>@sensor.Temperatura</td>
+                        <td>@sensor.Umidade</td>
+                        <td>@sensor.Localizacao</td>
+                        <td>@sensor.Condicao</td>
+                        <td>@sensor.DataAtualizacao</td>
+                        <td>
+                            <a href="/Sensor/Update?id=@sensor.Id">Atualizar este sensor</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>

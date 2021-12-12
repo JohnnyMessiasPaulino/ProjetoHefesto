@@ -1,0 +1,41 @@
+﻿@model ContaViewModel
+@{
+    ViewData["Title"] = "Tela Principal";
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Só falta adicionar o Layout
+}
+
+<div class="container">
+
+    @{
+        <div style="text-align:center">
+            <h2> Seja Bem vindo @Model.Usuario </h2>
+        </div>
+
+    }
+    <br />
+    <br />
+
+
+
+    <form action="/Proprietario/Index" method="post">
+
+        <input type="hidden" name="Listagem" value="@ViewBag.Fazendas" />
+
+        <center>
+            <input type="submit" value="Área de Cadastros" class="btn btn-info" />
+        </center>
+        <br />
+        <br />
+
+    </form>
+
+    <form action="/monitoramento/monitoramento">
+        <center>
+            <input type="submit" value="Área de Monitoramento" class="btn btn-info" />
+        </center>
+        <br />
+        <br />
+
+    </form>
+
+</div>

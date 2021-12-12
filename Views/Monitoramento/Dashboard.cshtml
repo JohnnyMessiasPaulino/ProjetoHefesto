@@ -1,0 +1,43 @@
+﻿
+<div id="atualizarDashboard">
+    @{
+        Html.RenderPartial("PartialViewDashboard");
+    }
+</div>
+
+<!--
+<div class="container-fluid">
+
+    <iframe src="https://freeboard.io/board/R-iqhQ" width="1600" height="800"></iframe>
+
+
+</div>
+
+-->
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    function atualizarDashboard() {
+        $.ajax(
+            {
+                type: 'GET',
+                url: '/Monitoramento/AtualizarDashboard',
+                dataType: 'html',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#atualizarDashboard').html(data);
+                }
+            });
+    }
+
+    $(document).ready(function () {
+        setInterval(atualizarDashboard, 10000);
+    });
+
+</script>
+
+

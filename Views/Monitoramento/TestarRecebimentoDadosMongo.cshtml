@@ -1,0 +1,34 @@
+﻿@model List<DispositivoMongoViewModel>
+
+<div id="atualizarMongo">
+    @{
+        Html.RenderPartial("PartialViewDadosMongo");
+    }
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    function atualizarMongo() {
+        $.ajax(
+            {
+                type: 'GET',
+                url: '/Monitoramento/AtualizarDadosMongoHistorico',
+                dataType: 'html',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#atualizarMongo').html(data);
+                }
+            });
+    }
+
+    $(document).ready(function () {
+        setInterval(atualizarMongo, 2000);
+    });
+
+</script>
+
+

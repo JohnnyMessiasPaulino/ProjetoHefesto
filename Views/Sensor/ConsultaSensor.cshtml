@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset id="areaFiltro" class="form-group">
+    <legend>Consulta de Sensor</legend>
+    <div class="row">
+        <div class="col-lg-4">
+            FazendaID<br />
+            <input type="number" id="fazendaID" class="form-control" value="0"/>
+        </div>
+        <div class="col-lg-2">
+            Localização<br />
+            <input type="text" id="localizacao" class="form-control"/>
+        </div>
+        <div class="col-lg-1">
+            <br />
+            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                   onclick="aplicaFiltroConsultaSensor()" />
+        </div>
+    </div>
+</fieldset>
+<div id="resultadoConsultaSensor" class="table-responsive">
+</div>

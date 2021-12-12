@@ -1,0 +1,35 @@
+﻿@model List<MonitoramentoViewModel>
+
+<div class="container">
+
+
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>Nome da Fazenda</th>
+            <th>Temperatura</th>
+            <th>Umidade</th>
+            <th>Data da Atualização</th>
+            <th>ID</th>
+            <th>Dados recebidos e enviados ao SQL via AJAX</th>
+        </tr>
+        @foreach (var doc in Model)
+        {
+            <tr>
+                <td>@doc.FazendaNome</td>
+                <td>@doc.Temperatura</td>
+                <td>@doc.Umidade</td>
+                <td>@doc.DataAtualizacao</td>
+                <td>@doc.ID</td>
+                <td>
+                    Última Atualização da tabela sensores em:
+                    @DateTime.Now.ToString("HH:mm:ss")
+                </td>
+            </tr>
+        }
+    </table>
+
+    <p>
+        Última atualização completa desta página:
+        @DateTime.Now.ToString("HH:mm:ss")
+    </p>
+</div>

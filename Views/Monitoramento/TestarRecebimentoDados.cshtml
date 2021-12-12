@@ -1,0 +1,38 @@
+﻿@model List<DispositivoViewModel>
+
+<div id="atualizar">
+    @{
+        Html.RenderPartial("PartialView");
+    }
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    function atualizarDefinicao() {
+        $.ajax(
+            {
+                type: 'GET',
+                url: '/Monitoramento/AtualizaDadosMonitoramentoAjax',
+                dataType: 'html',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#atualizar').html(data);
+                }
+            });
+    }
+
+    $(document).ready(function () {
+        setInterval(atualizarDefinicao, 1000);
+    });
+
+</script>
+
+<p>
+    Última atualização completa desta página:
+    @DateTime.Now.ToString("HH:mm:ss")
+</p>
+

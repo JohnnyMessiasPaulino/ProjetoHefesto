@@ -1,0 +1,68 @@
+﻿@model List<FazendaViewModel>
+
+    <div class="container">
+        <div style="text-align:center">
+            <h1>Listagem de Fazendas</h1>
+        </div>
+            <br />
+            <br />
+
+
+            <a href="/paginaaposlogin/acesso" class="btn btn-outline-dark">Voltar</a>
+            <br />
+            <br />
+            <table class="table">
+                <tr>
+                    <th>
+                        <a href="/Proprietario/Index" class="btn btn-success">Nova Fazenda</a>
+                    </th>
+                    <th>
+                        <a href="/Sensor/ExibeConsultaSensor" class="btn btn-success">Consultar Sensores</a>
+                    </th>
+                    <th>
+                        <a href="/Proprietario/Index" class="btn btn-success">Ver Lista de Proprietarios Cadastrados</a>
+                    </th>
+                    <th>
+                        <a href="/Sensor/Index" class="btn btn-success">Ver Lista de Sensores Cadastrados</a>
+                    </th>
+                </tr>
+            </table>
+            <br />
+            <br />
+
+            <table class="table table-responsive table-striped">
+                <tr>
+                    <th>Ações</th>
+                    <th>ID Fazenda</th>
+                    <th>Nome da Fazenda</th>
+                    <th>ID Proprietário</th>
+                    <th>Tamanho</th>
+                    <th>Número de Sensores</th>
+                    <th>Endereço</th>
+                    <th>Lista Sensores</th>
+                    <th>Cadastrar Sensores</th>
+                </tr>
+
+                @foreach (FazendaViewModel fazenda in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Fazenda/Edit?id=@fazenda.Id&id2=@fazenda.ProprietarioID"><img src="~/img/edit.png" /></a>
+                            <a href="/Fazenda/Delete?id=@fazenda.Id"><img src="~/img/delete.png" /></a>
+                        </td>
+                        <td>@fazenda.Id </td>
+                        <td>@fazenda.FazendaNome </td>
+                        <td>@fazenda.ProprietarioID</td>
+                        <td>@fazenda.Tamanho</td>
+                        <td>@fazenda.NumeroSensores</td>
+                        <td>@fazenda.Endereco</td>
+                        <td>
+                            <select asp-items="ViewBag.Sensores" class="form-control"></select>
+                        </td>
+                        <td>
+                            <a href="/Sensor/Create?id=@fazenda.Id">Cadastrar Sensor</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>

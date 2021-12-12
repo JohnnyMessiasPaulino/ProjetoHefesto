@@ -1,0 +1,71 @@
+﻿@model List<ProprietarioViewModel>
+
+@{ 
+    
+}
+    <div class="container">
+
+        <div style="text-align:center">
+            <h2>Listagem de Proprietarios</h2>
+        </div>
+        <br />
+        <br />
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    <a href="/Proprietario/Create" class="btn btn-success">Novo Proprietario</a>
+                </th>
+                <th>
+                    <a href="/Fazenda/ExibeConsultaAvancada" class="btn btn-success">Consultar Fazendas</a>
+                </th>
+                <th>
+                    <a href="/Fazenda/Index" class="btn btn-success">Ver Lista de Fazendas Cadastradas</a>
+                </th>
+                <th>
+                    <a href="/Sensor/Index" class="btn btn-success">Ver Lista de Sensores Cadastrados</a>
+                </th>
+            </tr>
+        </table>
+
+        <br />
+        <br />
+
+        <table class="table table-responsive table-striped">
+            <tr>
+                <th>Ações</th>
+                <th>ID </th>
+                <th>Usuário</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Lista de Fazendas Cadastradas</th>
+                <th>Cadastrar Fazenda</th>
+            </tr>
+
+            @foreach (ProprietarioViewModel proprietario in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/Proprietario/Edit?id=@proprietario.Id"><img src="~/img/edit.png" /></a>
+                        <a href="/Proprietario/Delete?id=@proprietario.Id"><img src="~/img/delete.png" /></a>
+                        
+                    </td>
+                    <td>@proprietario.Id </td>
+                    <td>@proprietario.Usuario</td>
+                    <td>@proprietario.Nome</td>
+                    <td>@proprietario.Telefone</td>
+                    <td>@proprietario.Email</td>
+                    <td>
+                        <select asp-items="ViewBag.Fazendas" class="form-control"></select>
+                    </td>
+                    <td>
+                        <a href="/Fazenda/Create?id=@proprietario.Id">Cadastrar Fazenda</a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+
+    </div>

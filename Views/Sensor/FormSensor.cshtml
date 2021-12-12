@@ -1,0 +1,51 @@
+﻿@model SensorViewModel
+@{
+    ViewData["Title"] = "Criação e Edição";
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Só falta adicionar o Layout
+}
+
+<div class="container">
+
+    <div style="text-align:center">
+        <h1>Cadastro e Edição de Sensores</h1>
+    </div>
+
+    <br />
+    <a href="/sensor/index" class="btn btn-outline-dark">Voltar</a>
+    <br />
+
+
+    <form action="Save" method="post">
+
+        <input type="hidden" value="@ViewBag.Operacao" name="operacao" />
+
+        <label for="Id" class="control-label">Sensor ID</label>
+        @if (ViewBag.Operacao == "I")
+        {
+            <input asp-for="Id" value="@Model.Id" class="form-control" readonly />
+        }
+        else
+        {
+            <input asp-for="Id" value="@Model.Id" class="form-control" readonly />
+        }
+        <span asp-validation-for="Id" class="text-danger"></span>
+
+        <br />
+
+        <label for="FazendaID" class="control-label" readonly>Fazenda ID</label>
+        <input asp-for="FazendaID" value="@Model.FazendaID" class="form-control" />
+        <br />
+
+        <label for="Localizacao" class="control-label">Localização</label>
+        <input asp-for="Localizacao" class="form-control" />>
+        <span asp-validation-for="Localizacao" class="text-danger"></span>
+        <br />
+
+        <label for="Condicao" class="control-label">Condição</label>
+        <input asp-for="Condicao" class="form-control" />>
+        <span asp-validation-for="Condicao" class="text-danger"></span>
+        <br />
+
+        <button type="submit" class="btn btn-info">Salvar</button>
+    </form>
+</div>

@@ -1,0 +1,55 @@
+﻿@model FazendaViewModel
+@{
+    ViewData["Title"] = "Criação e Edição";
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Só falta adicionar o Layout
+}
+<div class="container">
+
+    <div style="text-align:center">
+        <h1>Cadastro e Edição de Fazendas</h1>
+    </div>
+    <br />
+    <a href="/fazenda/index" class="btn btn-outline-dark">Voltar</a>
+    <br />
+
+    <form action="Save" method="post">
+
+        <input type="hidden" value="@ViewBag.Operacao" name="operacao" />
+
+        <label for="Id" class="control-label">Fazenda ID</label>
+        @if (ViewBag.Operacao == "I")
+        {
+            <input asp-for="Id" value="@Model.Id" class="form-control" readonly />
+        }
+        else
+        {
+            <input asp-for="Id" class="form-control" readonly />
+        }
+        <span asp-validation-for="Id" class="text-danger"></span>
+        <br />
+
+        <label for="FazendaNome" class="control-label">Nome da Fazenda</label>
+        <input asp-for="FazendaNome" class="form-control" />
+        <span asp-validation-for="FazendaNome" class="text-danger"></span>
+        <br />
+
+        @{Model.ProprietarioID = DadosEstaticos.IdParaLinkar; }
+        <label for="ProprietarioID" class="control-label">Proprietário ID</label>
+        <input asp-for="ProprietarioID" class="form-control" readonly />
+        <span asp-validation-for="ProprietarioID" class="text-danger"></span>
+        <br />
+
+        <label for="Tamanho" class="control-label">Tamanho</label>
+        <input asp-for="Tamanho" class="form-control" />
+        <span asp-validation-for="Tamanho" class="text-danger"></span>
+        <br />
+
+
+        <label for="Endereco" class="control-label">Endereço</label>
+        <input asp-for="Endereco" class="form-control" />>
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+        <br />
+
+        <button type="submit" class="btn btn-info">Salvar</button>
+    </form>
+</div>

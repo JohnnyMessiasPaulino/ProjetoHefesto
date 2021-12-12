@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1> Monitoramento </h1>
+    <br />
+    <br />
+    <br />
+
+    <form action="/monitoramento/dashboard">
+        <center>
+            <input type="submit" value="Dashboard Atualizado por AJAX" class="btn-block" />
+        </center>
+        <br />
+    </form>
+
+    <form action="/monitoramento/monitoramentofazenda">
+        <center>
+            <input type="submit" value="Monitoramento por Fazenda, recebido do MongoDB e atualizado via AJAX" class="btn-block" />
+        </center>
+        <br />
+    </form>
+
+
+    <form action="/monitoramento/testdata">
+        <center>
+            <input type="submit" value="Recebimento Dados em Tempo Real por JSON do MongoDB atualizado via AJAX" class="btn-block" />
+        </center>
+        <br />
+    </form>
+
+    <form action="/monitoramento/testmongodata">
+        <center>
+            <input type="submit" value="Histórico de temperaturas recebidos do MongoDB atualizado via AJAX" class="btn-block" />
+        </center>
+        <br />
+    </form>
+
+</div>

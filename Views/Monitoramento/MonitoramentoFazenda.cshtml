@@ -1,0 +1,57 @@
+﻿@model List<MonitoramentoViewModel>
+
+<!-- Filtros
+    <fieldset id="areaFiltro" class="form-group">
+        <legend>Consulta</legend>
+        <div class="row">
+            <div class="col-lg-4">
+                Nome da Fazenda<br />
+                <input type="text" id="nomeFazenda" class="form-control" />
+            </div>
+            <div class="col-lg-2">
+                ID<br />
+                <input type="number" id="Id" class="form-control" value="0"/>
+            </div>
+            <div class="col-lg-1">
+                <br />
+                <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                       onclick="aplicaFiltroConsultaMonitoramento()" />
+            </div>
+        </div>
+    </fieldset>
+    <div id="resultadoConsultaMonitoramento" class="table-responsive">
+    </div>
+    -->
+
+<div id="atualizar">
+    @{
+        Html.RenderPartial("PartialViewMonitoramentoFazenda");
+    }
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    function atualizarMonitoramentoFazenda() {
+        $.ajax(
+            {
+                type: 'GET',
+                url: '/Monitoramento/AtualizaDadosMonitoramentoFazenda',
+                dataType: 'html',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#atualizar').html(data);
+                }
+            });
+    }
+
+    $(document).ready(function () {
+        setInterval(atualizarMonitoramentoFazenda, 2000);
+    });
+
+</script>
+

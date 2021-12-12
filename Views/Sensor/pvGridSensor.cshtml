@@ -1,0 +1,25 @@
+﻿@model List<SensorViewModel>
+
+<table class="table table-striped">
+    <tr>
+        <th>Código</th>
+        <th>Código da Fazenda</th>
+        <th>Temperatura</th>
+        <th>Umidade</th>
+        <th>Localização</th>
+        <th>Data de Atualização</th>
+        <th>Condição</th>
+    </tr>
+    @foreach (var sensor in Model)
+    {
+        <tr>
+            <td>@sensor.Id</td>
+            <td>@sensor.FazendaID</td>
+            <td>@sensor.Temperatura</td>
+            <td>@sensor.Umidade</td>
+            <td>@sensor.Localizacao</td>
+            <td>@sensor.DataAtualizacao</td>
+            <td>@sensor.Condicao</td>
+        </tr>
+    }
+</table>

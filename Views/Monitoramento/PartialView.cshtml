@@ -1,0 +1,28 @@
+﻿@model List<DispositivoViewModel>
+
+
+<div class="container">
+
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>ID do Dispositivo</th>
+            <th>Tipo</th>
+            <th>Umidade</th>
+            <th>Temperatura</th>
+            <th>Partial View Atualizado em:</th>
+        </tr>
+        @foreach (DispositivoViewModel d in Model)
+        {
+            <tr>
+                <td>@d.Id</td>
+                <td>@d.Type</td>
+                <td>@d.Humidity.Value</td>
+                <td>@d.Temperature.Value</td>
+                <td>
+                    Última Definição carregada em:
+                    @DateTime.Now.ToString("HH:mm:ss")
+                </td>
+            </tr>
+        }
+    </table>
+</div>

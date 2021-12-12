@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset id="areaFiltro" class="form-group">
+    <legend>Consulta de Fazendas</legend>  
+    <div class="row">
+        <div class="col-lg-4">
+            Nome<br />
+            <input type="text" id="fazendaNome" class="form-control" />
+        </div>
+        <div class="col-lg-2">
+            Tamanho de:<br />
+            <input type="number" id="tamanhoInicial" class="form-control" value="0"/>
+        </div>
+        <div class="col-lg-2">
+            Até: <br />
+            <input type="number" id="tamanhoFinal" class="form-control"  value="0"/>
+        </div>
+        <div class="col-lg-2">
+            Número de sensores<br />
+            <input type="number" id="numeroSensores" class="form-control" value="0"/>
+        </div>
+        <div class="col-lg-1">
+            <br />
+            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                   onclick="aplicaFiltroConsultaAvancada()" />
+        </div>
+    </div>
+</fieldset>
+<div id="resultadoConsulta" class="table-responsive">
+</div>

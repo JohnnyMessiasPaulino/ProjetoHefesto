@@ -1,0 +1,32 @@
+﻿@model List<DispositivoMongoViewModel>
+
+<div class="container">
+    <p>
+        Última atualização completa desta página:
+        @DateTime.Now.ToString("HH:mm:ss")
+    </p>
+
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome Dispositivo</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Nome</th>
+            <th>Valor</th>
+        </tr>
+        @foreach (var doc in Model)
+        {
+            <tr>
+                <td>@doc._id</td>
+                <td>@doc.NomeDispositivo</td>
+                <td>@doc.RecvTime</td>
+                <td>@doc.AttrType</td>
+                <td>@doc.AttrName</td>
+                <td>@doc.AttrValue</td>
+
+            </tr>
+        }
+    </table>
+
+</div>

@@ -1,0 +1,55 @@
+﻿@model ProprietarioViewModel
+@{
+    ViewData["Title"] = "Criação e Edição de Proprietarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div style="text-align:center">
+        <h2>Cadastro e Edição de Proprietários</h2>
+    </div>
+
+
+
+
+<form action="Save" method="post">
+
+    <input type="hidden" value="@ViewBag.Operacao" name="operacao" />
+
+    <label for="Id" class="control-label">Proprietario ID</label>
+    @if (ViewBag.Operacao == "I")
+    {
+        <input asp-for="Id" class="form-control" readonly />
+    }
+    else
+    {
+        <input asp-for="Id" class="form-control" readonly />
+    }
+    <span asp-validation-for="Id" class="text-danger"></span>
+
+    <br />
+
+    @{Model.Usuario = DadosEstaticos.UsuarioAtualLogado;}
+    <label for="Usuario" class="control-label">Usuario</label>
+    <input asp-for="Usuario" class="form-control" readonly />
+    <span asp-validation-for="Usuario" class="text-danger"></span>
+    <br />
+
+
+    <label for="Nome" class="control-label">Nome do Proprietário</label>
+    <input asp-for="Nome" class="form-control" />
+    <span asp-validation-for="Nome" class="text-danger"></span>
+    <br />
+
+    <label for="Telefone" class="control-label">Telefone</label>
+    <input asp-for="Telefone" class="form-control" />
+    <span asp-validation-for="Telefone" class="text-danger"></span>
+    <br />
+
+    <label for="Email" class="control-label">E-mail</label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br />
+
+    <button type="submit" class="btn btn-info">Salvar</button>
+</form>
+</div>

@@ -1,0 +1,37 @@
+﻿@model ContaViewModel
+
+@{
+    ViewData["Title"] = "CadastroConta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <form action="/conta/salvarnovaconta" method="post">
+        <h2>Tela de Cadastro</h2>
+
+        <br />
+
+        <div class="form-group">
+            <label for="Usuario" class="text-center">Login</label>
+            <input type="text" Name="Usuario" value="@Model.Usuario" placeholder="Digite seu login" class="form-control" />
+            <span asp-validation-for="Usuario" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group">
+            <label for="Senha" class="text-center">Senha</label>
+            <input type="password" Name="Senha" value="@Model.Senha" placeholder="Digite sua Senha" class="form-control" />
+            <span asp-validation-for="Senha" class="text-danger"></span>
+            <br />
+        </div>
+
+        <center>
+            <input type="submit" value="Salvar" class="btn btn-info" />
+        </center>
+        <br />
+    </form>
+
+
+</div>
