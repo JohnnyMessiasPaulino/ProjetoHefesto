@@ -1,7 +1,5 @@
 # ProjetoHefesto
 
-> #### ProjetoHefesto
-
 > #### Para que serve?
 
 >> Tem o objetivo de obter dados de temperatura e umidade de sensores DHT 11, para detectar variações de temperatura para detectar/disparar alarmes de incendios.
